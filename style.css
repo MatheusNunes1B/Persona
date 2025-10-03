@@ -1,0 +1,621 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #121212; /* Cor de fundo de fallback */  
+  color: #f0f0f0;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+
+header {
+  background-color: #000;
+  padding: 20px;
+  display: flex;  
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  color: #E10600;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.logo span {
+  color: white;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  color: #f0f0f0;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav ul li a:hover {
+  color: #E10600;
+}
+
+
+.hero {
+  position: relative;
+  background-position: top center; /* Centraliza no topo */
+  background-repeat: no-repeat; /* Impede repetição */
+  background-size: cover; /* A imagem cobre toda a área */
+  height: 150px; /* Altura do header */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #ff0000; /* Cor do texto */
+  padding: 20px;
+  margin: 0; /* Remove margens extras */
+}
+
+.hero h1 {
+  color: #ffffff;
+}
+
+
+/* Overlay (camada sobre a imagem de fundo) */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color:  #121212;
+  z-index: 1; /* Coloca o overlay acima da imagem, mas abaixo do conteúdo */
+}
+
+/* Conteúdo sobre o header */
+.hero-content {
+  position: relative;
+  z-index: 2; /* Coloca o conteúdo acima do overlay */
+}
+
+.hero-content h1 {
+  color: #ff0000;
+  font-size: 50px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  font-size: 20px;
+  font-weight: 300;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+
+.descricao {
+  font-size: 20px;
+  font-weight: 300;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: justify;
+  padding: 50px;
+}
+
+
+
+.noticia {
+  background-color: #1e1e1e;
+}
+
+
+
+
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 colunas fixas */
+  gap: 40px; /* Espaçamento entre os quadrados */
+  padding: 40px;
+  background-color: #121212;
+}
+
+/* Estilo para cada quadrado */
+.topic {
+  background-color: #fff;
+  border: 2px solid #000000;
+  border-radius: 16px;
+  text-align: center;
+  box-sizing: border-box; /* Para incluir o padding no tamanho total */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+
+
+
+
+/* Efeito de hover para os quadrados */
+.topic:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo da imagem */
+.topic img {
+  flex: 1; /* Ocupa o espaço disponível */
+  width: 100%;
+  object-fit: contain; /* Mantém a proporção da imagem */
+  border-radius: 15px;
+}
+
+
+
+/* Estilo do nome da equipe */
+.topic h3 {
+  font-size: 20px;
+  color: #333;
+  font-weight: 600;
+  margin-top: 16px;
+  margin-bottom: 0;
+}
+
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  .content {
+    grid-template-columns: 1fr; /* Em telas pequenas, 1 coluna */
+  }
+  
+  .topic {
+    height: auto; /* A altura pode ser adaptada */
+    padding: 20px; /* Menos padding em telas pequenas */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.news {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Espaçamento entre os quadros */
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 8px;
+  justify-content: space-between;
+}
+
+.news article {
+  background-color: #2d2d2d;
+  padding: 20px;
+  border-radius: 8px;
+  flex: 1;
+  min-width: 250px; /* Tamanho mínimo para as notícias */
+  max-width: 48%; /* Máximo para duas colunas */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+.news article:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.news article h2 {
+  font-size: 1.8rem;
+  color: #E10600;
+  margin-bottom: 10px;
+}
+
+.news article p {
+  color: #ccc;
+  font-size: 1rem;
+}
+
+.sidebar {
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.sidebar h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #E10600;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+  color: #f0f0f0;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.sidebar ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .news {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .news article {
+    max-width: 100%; /* Em telas pequenas, as notícias ocupam toda a largura */
+  }
+
+  .sidebar {
+    margin-top: 20px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer {
+  background-color: #000;
+  color: #777;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    margin: 20px;
+  }
+
+  .hero {
+    height: 250px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+}
+
+
+
+
+
+
+.videos {
+  padding: 40px 20px;
+  background-color: #111;
+  color: #fff;
+  text-align: center;
+}
+
+.videos h2 {
+  font-size: 36px;
+  margin-bottom: 30px;
+  color: #ff0000; /* amarelo */
+}
+
+/* Contêiner para as setas e vídeos */
+.video-container-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilo das setas de navegação */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  font-size: 32px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 2;
+  transition: background-color 0.3s ease;
+}
+
+.arrow:hover {
+  background-color: #f1c40f;
+}
+
+.left-arrow {
+  left: 20px;
+}
+
+.right-arrow {
+  right: 20px;
+}
+
+/* Container de vídeos rolável */
+.video-container {
+  display: flex;
+  overflow-x: hidden;  /* Impede rolagem livre */
+  gap: 20px;
+  padding: 10px 0;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Estilo dos iframes para vídeos */
+.video-container iframe {
+  flex: 0 0 auto;
+  width: 300px;
+  height: 170px;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+  scroll-snap-align: start;
+}
+
+.video-container iframe:hover {
+  transform: scale(1.01);
+}
+
+
+
+
+/* Estilo geral da galeria */
+.photos {
+  padding: 60px 60px;
+  text-align: center;
+  background-color: #121212;
+}
+
+.photos h2 {
+  font-size: 36px;
+  color: #ff0000;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+/* Grid de fotos */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsivo */
+  gap: 20px; /* Espaçamento entre as imagens */
+  justify-items: center; /* Centraliza as imagens dentro do grid */
+}
+
+/* Estilo de cada item da foto */
+.photo-item {
+  position: relative;
+  overflow: hidden; /* Garante que a imagem não ultrapasse os limites do contêiner */
+  border-radius: 8px; /* Bordas arredondadas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito de zoom nas fotos */
+.photo-item:hover {
+  transform: scale(1.05); /* Amplia a imagem ao passar o mouse */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Aumenta a sombra */
+}
+
+/* Estilo das imagens */
+.photo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Garante que as imagens cubram o espaço sem distorção */
+  border-radius: 8px;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  .photo-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ajuste em telas menores */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+.top10-title {
+  font-size: 48px;
+  font-weight: bold;
+  text-align: center;
+  color: #f1f1f1;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-color: #222;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  margin-top: 40px;
+}
+
+
+
+
+
+/* Seção de Top 10 */
+.top10 {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background-color: #000;
+  font-family: 'Roboto', sans-serif;
+}
+
+.piloto {
+  background-color: #000;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.05s ease, box-shadow 0.05s ease;
+  text-align: center;
+}
+
+.piloto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.piloto h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #ff0000;
+}
+
+.piloto img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.piloto p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ffffff;
+  text-align: justify;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .piloto {
+    padding: 16px;
+  }
+
+  .piloto h2 {
+    font-size: 20px;
+  }
+
+  .piloto p {
+    font-size: 15px;
+  }
+}
+
+/* Hero Section */
+.hero {
+  background-color: #000;
+  color: #000;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 36px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Top 10 Pilotos */
+.top10 {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: #000;
+  font-family: 'Roboto', sans-serif;
+}
+
+.piloto {
+  background-color: #222;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform;
+}
+
+
+
+
+
+
+
+
+/* Estilo para o container do botão, garantindo que o botão seja centralizado */
+.button-container {
+    display: flex;
+    justify-content: center; /* Alinha o botão no centro horizontalmente */
+    align-items: center;     /* Alinha o botão no centro verticalmente */
+    height: 100vh;           /* Faz o container ter a altura total da tela */
+}
+
+/* Estilo para o botão */
+.btn-redirecionar {
+    background-color: #E10600;  /* Cor vermelha */
+    color: #fff;                /* Texto branco */
+    font-size: 1.2rem;          /* Tamanho de fonte */
+    padding: 10px 20px;         /* Espaçamento interno */
+    border: none;               /* Sem borda */
+    border-radius: 5px;         /* Bordas arredondadas */
+    cursor: pointer;           /* Cursor de mão ao passar sobre o botão */
+    transition: background-color 0.3s;  /* Efeito de transição */
+}
+
+/* Efeito de hover */
+.btn-redirecionar:hover {
+    background-color: #b50000;  /* Cor mais escura ao passar o mouse */
+}
